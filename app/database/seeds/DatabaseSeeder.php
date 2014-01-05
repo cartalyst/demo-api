@@ -11,7 +11,20 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$tables = [
+			'activations', 'groups', 'groups_users', 'reminders', 'throttle', 'users',
+			'places',
+			'checkins',
+		];
+
+		foreach ($tables as $table)
+		{
+			DB::table($table)->truncate();
+		}
+
+		$this->call('UserTableSeeder');
+		$this->call('PlaceTableSeeder');
+		$this->call('CheckinTableSeeder');
 	}
 
 }

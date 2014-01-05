@@ -11,6 +11,8 @@
 |
 */
 
+require_once __DIR__.'/../vendor/cartalyst/api/src/start.php';
+
 $app = new Illuminate\Foundation\Application;
 
 /*

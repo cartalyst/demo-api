@@ -107,6 +107,9 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		'Cartalyst\Sentry\Laravel\SentryServiceProvider',
+		'Cartalyst\Api\Laravel\ApiServiceProvider',
+
 	),
 
 	/*
@@ -172,6 +175,15 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+
+		'Activation'    => 'Cartalyst\Sentry\Laravel\Facades\Activation',
+		'Auth'          => 'Cartalyst\Sentry\Laravel\Facades\Sentry',
+		'Reminder'      => 'Cartalyst\Sentry\Laravel\Facades\Reminder',
+		'Sentry'        => 'Cartalyst\Sentry\Laravel\Facades\Sentry',
+		'SwiftIdentity' => 'Cartalyst\Sentry\Laravel\Facades\SwiftIdentity',
+
+		'API'         => 'Cartalyst\Api\Laravel\Facades\API',
+		'ApiResponse' => 'Cartalyst\Api\Response',
 
 	),
 

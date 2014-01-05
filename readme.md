@@ -1,21 +1,37 @@
-## Laravel PHP Framework
+# API Demo
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+This demo works to serve as a real-life demo of Cartalyst's API V2 for Laravel 4.1. The package is a work-in-progress and therefore this demo is as well.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+This demo is a mockup of Foursqure and the following entities:
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+1. Places
+2. Users
+3. Checkins
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Data is seeded to the database by Laravel's seeding. We utilise our API package for internal API requests - allowing you to build API-first applications (an abstraction where your application's controllers talk [in runtime] directly to your RESTful API).
 
-## Official Documentation
+This demo is following [Phil Sturgeon's](https://github.com/philsturgeon) recommendations for [building a decent RESTful API](http://philsturgeon.co.uk/blog/2013/07/building-a-decent-api).
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+We are also utilising [The League of Extraordinary Packages'](http://thephpleague.com) REST API helper package, [Fractal](https://github.com/php-loep/fractal).
 
-### Contributing To Laravel
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+ https://leanpub.com/build-apis-you-wont-hate
 
-### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Installation
+
+To install this demo, firstly you must be a subscriber of Cartalyst's [Arsenal](http://cartalyst.com/arsenal).
+
+Installation:
+
+1. Clone this repo:
+
+        git clone git@github.com:cartalyst/api-demo.git
+
+2. Go into the directory in your terminal app and install composer dependencies:
+
+        composer install
+
+3. Run migrations for Sentry and the main application
+
+        composer install

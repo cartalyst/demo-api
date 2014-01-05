@@ -15,3 +15,19 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::group(['prefix' => 'admin'], function()
+{
+	Route::get('places', 'PlacesAdminController@index');
+	Route::get('places/{id}/edit', 'PlacesAdminController@edit');
+	Route::post('places/{id}/edit', 'PlacesAdminController@update');
+	Route::get('places/{id}/delete', 'PlacesAdminController@delete');
+});
+
+Route::group(['prefix' => 'api/v1'], function()
+{
+	Route::get('places', 'PlacesApiController@index');
+	Route::get('places/{id}', 'PlacesApiController@show');
+	Route::put('places/{id}', 'PlacesApiController@update');
+	Route::delete('places/{id}', 'PlacesApiController@destroy');
+});
