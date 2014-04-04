@@ -11,7 +11,10 @@ class CheckinTableSeeder extends Seeder {
 	{
 		$faker = Faker\Factory::create();
 
-		$users = User::all();
+		$users = User::with('groups')->whereHas('groups', function($query)
+		{
+			$query->whereSlug('standard');
+		})->get();
 		$usersList = $users->lists('id');
 
 		$places = Place::all();

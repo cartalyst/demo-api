@@ -13,7 +13,18 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+	<body style="padding-top: 20px; padding-bottom: 20px;">
+
+		@if (Sentry::check())
+			<div class="container">
+
+				@if (Sentry::hasAccess('places.*'))
+					<a href="{{ URL::to('admin/places') }}" class="btn btn-default">Manage Places</a>
+				@endif
+
+				<a href="{{ URL::to('logout') }}" class="pull-right btn btn-danger btn-small">Logout</a>
+			</div>
+		@endif
 
 		@include('partials.notifications')
 

@@ -11,6 +11,11 @@ class PlacesApiController extends ApiController {
 	 */
 	public function index()
 	{
+		if ( ! $this->checkAccess('places.list'))
+		{
+			return $this->responseWithErrors('Sorry, you are not allowed to list places.', 403);
+		}
+
 		$places = Place::all();
 
         return $this->respondWithCollection($places, new PlaceTransformer);
@@ -24,6 +29,11 @@ class PlacesApiController extends ApiController {
 	 */
 	public function show($id)
 	{
+		if ( ! $this->checkAccess('places.show'))
+		{
+			return $this->responseWithErrors('Sorry, you are not allowed to show places.', 403);
+		}
+
 		$place = Place::find($id);
 
 		if ( ! $place)
@@ -42,6 +52,11 @@ class PlacesApiController extends ApiController {
 	 */
 	public function update($id)
 	{
+		if ( ! $this->checkAccess('places.update'))
+		{
+			return $this->responseWithErrors('Sorry, you are not allowed to edit places.', 403);
+		}
+
 		$validator = Validator::make(Input::json()->all(), [
 			'name' => 'required',
 			'address' => 'required',
@@ -67,6 +82,11 @@ class PlacesApiController extends ApiController {
 	 */
 	public function destroy($id)
 	{
+		if ( ! $this->checkAccess('places.delete'))
+		{
+			return $this->responseWithErrors('Sorry, you are not allowed to delete places.', 403);
+		}
+
 		$place = Place::find($id);
 
 		if ( ! $place)

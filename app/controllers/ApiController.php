@@ -77,4 +77,19 @@ class ApiController extends Controller {
 		return new ApiResponse('', 204);
 	}
 
+	protected function checkAccess($permission)
+	{
+		// On sub-requests (internal requests), we don't want to enforce access to
+		// edit resources at runtime when accessing an API resource. This should be
+		// done on the UI side. It doesn't matter where you call API methods from,
+		// be it a controller or a CLI command, we only care about checking access
+		// when we're being hit directly from a HTTP request.
+		if (API::isSubRequest())
+		{
+			return true;
+		}
+
+		return (Sentry::check() && Sentry::hasAccess($permission));
+	}
+
 }

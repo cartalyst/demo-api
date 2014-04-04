@@ -11,9 +11,8 @@
 	],
 	"require": {
 		"laravel/framework": "4.1.*",
-		"doctrine/dbal": "2.5.*",
-		"cartalyst/sentry": "~3",
-		"cartalyst/api": "~2",
+		"cartalyst/sentry": "dev-develop",
+		"cartalyst/api": "2.0.*",
 		"league/fractal": "dev-master"
 	},
 	"require-dev": {
@@ -47,5 +46,6 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder {
 			DB::table($table)->truncate();
 		}
 
+		$this->call('GroupTableSeeder');
 		$this->call('UserTableSeeder');
 		$this->call('PlaceTableSeeder');
 		$this->call('CheckinTableSeeder');

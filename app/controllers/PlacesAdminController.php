@@ -6,6 +6,11 @@ class PlacesAdminController extends BaseController {
 
 	public function index()
 	{
+		if ( ! $this->checkAccess('places.list'))
+		{
+			return Redirect::to('/')->withErrors('You don\'t have access to list.');
+		}
+
 		$places = $this->api('get', 'api/v1/places');
 
 		return View::make('places.index', compact('places'));
@@ -13,6 +18,11 @@ class PlacesAdminController extends BaseController {
 
 	public function edit($id)
 	{
+		if ( ! $this->checkAccess('places.edit'))
+		{
+			return Redirect::to('admin/places')->withErrors('You aren\'t allowed to edit places.');
+		}
+
 		try
 		{
 			$place = $this->api('get', "api/v1/places/$id");
@@ -28,6 +38,11 @@ class PlacesAdminController extends BaseController {
 
 	public function update($id)
 	{
+		if ( ! $this->checkAccess('places.update'))
+		{
+			return Redirect::back()->withErrors('You aren\'t allowed to edit places.');
+		}
+
 		$validator = Validator::make(Input::get(), [
 			'name' => 'required',
 			'address' => 'required',
@@ -47,6 +62,11 @@ class PlacesAdminController extends BaseController {
 
 	public function delete($id)
 	{
+		if ( ! $this->checkAccess('places.delete'))
+		{
+			return Redirect::back()->withErrors('You aren\'t allowed to delete places.');
+		}
+
 		try
 		{
 			$place = $this->api('delete', "api/v1/places/$id");

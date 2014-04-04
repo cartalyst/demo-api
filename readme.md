@@ -45,6 +45,7 @@ Installation:
         php artisan db:seed
 
 
+
 ## API Usage
 
 This demo is not a fully-fledged app. It's a demo, so we haven't completed every endpoint.
@@ -54,13 +55,13 @@ We have fulfilled the basic ~~C~~RUD processed for a "place" entity. Begin by hi
     GET /api/v1/places HTTP/1.1
     Host: api.dev
 
-Excerpt From: Phil Sturgeon. “Build APIs You Won't Hate.” iBooks. 
+Excerpt From: Phil Sturgeon. “Build APIs You Won't Hate.” iBooks.
 
 This will return a nicely formatted array of available places. You may also nest in checkins for each place and associated users (which was populated through the seeding process above). To have a play with this, get your favorite HTTP client (I like the [Postman REST Client](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) for Chrome):
 
     GET /api/v1/places?include=checkins HTTP/1.1
     Host: api.dev
-    
+
     GET /api/v1/places?include=checkins.user HTTP/1.1
     Host: api.dev
 
@@ -70,7 +71,7 @@ You may also perform a `PUT` request following URI to update a place, for exampl
 
     PUT /api/v1/places/1 HTTP/1.1
     Host: api.dev
-    
+
     {"name":"New Name","address","123 Fake Street\nFake City"}
 
 And of course, you may `DELETE` a place:

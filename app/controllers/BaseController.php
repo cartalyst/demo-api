@@ -1,6 +1,7 @@
 <?php
 
 use Cartalyst\Api\Dispatcher;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BaseController extends Controller {
@@ -12,7 +13,7 @@ class BaseController extends Controller {
 		$this->api = $api;
 	}
 
-	public function api()
+	protected function api()
 	{
 		$args = func_get_args();
 
@@ -46,6 +47,11 @@ class BaseController extends Controller {
 		}
 
 		return $response->getData()['data'];
+	}
+
+	protected function checkAccess($permission)
+	{
+		return (Sentry::check() && Sentry::hasAccess($permission));
 	}
 
 	/**
