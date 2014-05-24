@@ -176,14 +176,14 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-		'Activation'    => 'Cartalyst\Sentry\Laravel\Facades\Activation',
-		'Auth'          => 'Cartalyst\Sentry\Laravel\Facades\Sentry',
-		'Reminder'      => 'Cartalyst\Sentry\Laravel\Facades\Reminder',
-		'Sentry'        => 'Cartalyst\Sentry\Laravel\Facades\Sentry',
-		'SwiftIdentity' => 'Cartalyst\Sentry\Laravel\Facades\SwiftIdentity',
+		'Activation'       => 'Cartalyst\Sentry\Laravel\Facades\Activation',
+		'Auth'             => 'Cartalyst\Sentry\Laravel\Facades\Sentry',
+		'Reminder'         => 'Cartalyst\Sentry\Laravel\Facades\Reminder',
+		'Sentry'           => 'Cartalyst\Sentry\Laravel\Facades\Sentry',
+		'SwipeIdentity'    => 'Cartalyst\Sentry\Laravel\Facades\SwipeIdentity',
 
-		'API'         => 'Cartalyst\Api\Laravel\Facades\API',
-		'ApiResponse' => 'Cartalyst\Api\Response',
+		'API'              => 'Cartalyst\Api\Laravel\Facades\API',
+		'ApiResponse'      => 'Cartalyst\Api\Response',
 
 	),
 

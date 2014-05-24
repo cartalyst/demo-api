@@ -14,11 +14,11 @@
  * @version    3.0.0
  * @author     Cartalyst LLC
  * @license    BSD License (3-clause)
- * @copyright  (c) 2011 - 2013, Cartalyst LLC
+ * @copyright  (c) 2011-2014, Cartalyst LLC
  * @link       http://cartalyst.com
  */
 
-return array(
+return [
 
 	/*
 	|--------------------------------------------------------------------------
@@ -51,11 +51,11 @@ return array(
 	|
 	*/
 
-	'users' => array(
+	'users' => [
 
 		'model' => 'User',
 
-	),
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -66,11 +66,11 @@ return array(
 	|
 	*/
 
-	'groups' => array(
+	'groups' => [
 
 		'model' => 'Group',
 
-	),
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,18 +80,18 @@ return array(
 	| When logging in, checking for existing sessions and failed logins occur,
 	| you may configure an indefinite number of "checkpoints". These are
 	| classes which may respond to each event and handle accordingly.
-	| We ship with three, an activation checkpoint, SwiftIdentity
+	| We ship with three, an activation checkpoint, SwipeIdentity
 	| two-factor authentication checkpoint and a throttling
 	| checkpoint. Feel free to add, remove or re-order
 	| these.
 	|
 	*/
 
-	'checkpoints' => array(
+	'checkpoints' => [
 		'activation',
 		'throttle',
-		// 'swift',
-	),
+		// 'swipe',
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -104,13 +104,13 @@ return array(
 	|
 	*/
 
-	'activations' => array(
+	'activations' => [
 
 		'model' => 'Cartalyst\Sentry\Activations\EloquentActivation',
 
 		'expires' => 259200,
 
-	),
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -123,13 +123,13 @@ return array(
 	|
 	*/
 
-	'reminders' => array(
+	'reminders' => [
 
 		'model' => 'Cartalyst\Sentry\Reminders\EloquentReminder',
 
 		'expires' => 14400,
 
-	),
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -173,64 +173,64 @@ return array(
 	|
 	*/
 
-	'throttling' => array(
+	'throttling' => [
 
 		'model' => 'Cartalyst\Sentry\Throttling\EloquentThrottle',
 
-		'global' => array(
+		'global' => [
 
 			'interval' => 900,
 
-			'thresholds' => array(
+			'thresholds' => [
 				10 => 1,
 				20 => 2,
 				30 => 4,
 				50 => 8,
 				50 => 16,
 				60 => 12
-			),
+			],
 
-		),
+		],
 
-		'ip' => array(
-
-			'interval' => 900,
-
-			'thresholds' => 5,
-
-		),
-
-		'user' => array(
+		'ip' => [
 
 			'interval' => 900,
 
 			'thresholds' => 5,
 
-		),
+		],
 
-	),
+		'user' => [
+
+			'interval' => 900,
+
+			'thresholds' => 5,
+
+		],
+
+	],
 
 	/*
 	|--------------------------------------------------------------------------
-	| Swift Identity (http://www.swiftidentity.com)
+	| Swipe Identity (http://www.swipeidentity.com)
 	|--------------------------------------------------------------------------
 	|
-	| Swift Identity is a free two factor authentication service. Two factor
+	| Swipe Identity is a free two factor authentication service. Two factor
 	| authentication is an approach where a second device must approve each
 	| login, so that if passwords are breached, unless the device is also
 	| stolen, a login cannot occur. This is a very secure way of
 	| protecting those users who use common passwords against
 	| themselves.
 	|
-	| At this stage, Sentry supports Swift Identity using either "swipe" or
+	| At this stage, Sentry supports Swipe Identity using either "swipe" or
 	| "sms" methods. You must also provide your developer account email,
 	| password, API key and app code.
 	|
-	| See http://www.swiftidentity.com/solutions/php-toolkit for more.
+	| See http://www.swipeidentity.com/solutions/php-toolkit for more.
 	|
 	*/
 
-	'swift' => array(
+	'swipe' => [
 
 		'method' => 'swipe',
 
@@ -242,6 +242,6 @@ return array(
 
 		'app_code' => null,
 
-	),
+	],
 
-);
+];
