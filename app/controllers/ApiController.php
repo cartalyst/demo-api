@@ -1,5 +1,6 @@
 <?php
 
+use Cartalyst\Api\Response;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 use League\Fractal\Manager;
@@ -14,7 +15,7 @@ class ApiController extends Controller {
 		$this->fractal = $fractal;
 
 		// Are we going to try and include embedded data?
-		$this->fractal->setRequestedScopes(explode(',', Input::get('include')));
+		$this->fractal->parseIncludes(Input::get('include', []));
 	}
 
 	/**
@@ -40,6 +41,13 @@ class ApiController extends Controller {
 		return $this;
 	}
 
+	/**
+	 * Returns the given item.
+	 *
+	 * @param  mixed  $item
+	 * @param  mixed  $callback
+	 * @return \Cartalyst\Api\Response
+	 */
 	protected function respondWithItem($item, $callback)
 	{
 		$resource = new Item($item, $callback);
@@ -49,6 +57,13 @@ class ApiController extends Controller {
 		return $this->respondWithArray($rootScope->toArray());
 	}
 
+	/**
+	 * Returns the given collection.
+	 *
+	 * @param  mixed  $collection
+	 * @param  mixed  $callback
+	 * @return \Cartalyst\Api\Response
+	 */
 	protected function respondWithCollection($collection, $callback)
 	{
 		$resource = new Collection($collection, $callback);
@@ -58,23 +73,41 @@ class ApiController extends Controller {
 		return $this->respondWithArray($rootScope->toArray());
 	}
 
+	/**
+	 * Returns the given data.
+	 *
+	 * @param  array  $data
+	 * @param  array  $headers
+	 * @return \Cartalyst\Api\Response
+	 */
 	protected function respondWithArray(array $array, array $headers = [])
 	{
-		$response = new ApiResponse($array, $this->statusCode, $headers);
+		return new Response($array, $this->statusCode, $headers);
 
-		return $response;
 	}
 
+	/**
+	 * Returns a response with an error response code.
+	 *
+	 * @param  array  $item
+	 * @param  int  $code
+	 * @return \Cartalyst\Api\Response
+	 */
 	protected function responseWithErrors($errors, $code)
 	{
 		$errors = (array) $errors;
 
-		return new ApiResponse(compact('errors'), $code);
+		return new Response(compact('errors'), $code);
 	}
 
+	/**
+	 * Returns a response with the no content response code.
+	 *
+	 * @return \Cartalyst\Api\Response
+	 */
 	protected function responseWithNoContent()
 	{
-		return new ApiResponse('', 204);
+		return new Response('', 204);
 	}
 
 	protected function checkAccess($permission)
