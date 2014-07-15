@@ -15,10 +15,10 @@
 	</head>
 	<body style="padding-top: 20px; padding-bottom: 20px;">
 
-		@if (Sentry::check())
+		@if (Sentinel::check())
 			<div class="container">
 
-				@if (Sentry::hasAccess('places.*'))
+				@if (Sentinel::hasAccess('places.*'))
 					<a href="{{ URL::to('admin/places') }}" class="btn btn-default">Manage Places</a>
 				@endif
 

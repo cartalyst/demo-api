@@ -39,10 +39,10 @@ composer install
 
 4. Configure your database connection.
 
-5. Run migrations for Sentry and the main application
+5. Run migrations for Sentinel and the main application
 
 ```
-php artisan migrate --package=cartalyst/sentry
+php artisan migrate --package=cartalyst/sentinel
 php artisan migrate
 ```
 

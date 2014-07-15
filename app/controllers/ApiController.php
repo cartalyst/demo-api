@@ -122,7 +122,7 @@ class ApiController extends Controller {
 			return true;
 		}
 
-		return (Sentry::check() && Sentry::hasAccess($permission));
+		return (Sentinel::check() && Sentinel::hasAccess($permission));
 	}
 
 }

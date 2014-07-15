@@ -5,7 +5,7 @@ use User;
 
 class UserTransformer extends TransformerAbstract
 {
-	protected $availableEmbeds = [
+	protected $availableIncludes = [
 		'checkins',
 	];
 
@@ -30,7 +30,7 @@ class UserTransformer extends TransformerAbstract
 	 *
 	 * @return League\Fractal\Resource\Collection
 	 */
-	public function embedCheckins(User $user)
+	public function includeCheckins(User $user)
 	{
 		$checkins = $user->checkins;
 

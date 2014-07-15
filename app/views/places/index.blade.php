@@ -9,7 +9,7 @@
 <div class="alert alert-info">
 	You have permission to list places!
 </div>
-@if ( ! Sentry::hasAccess('places.delete'))
+@if ( ! Sentinel::hasAccess('places.delete'))
 	<div class="alert alert-warning">
 		You don't have permission to delete places.
 	</div>
@@ -29,8 +29,8 @@
 				<td>{{{ $place['name'] }}}</td>
 				<td>{{{ $place['created_at'] }}}</td>
 				<td>
-					<a href="{{ URL::to("admin/places/{$place['id']}/edit") }}" class="btn btn-default" @if ( ! Sentry::hasAccess('places.edit')) disabled @endif>Edit</a>
-					<a href="{{ URL::to("admin/places/{$place['id']}/delete") }}" class="btn btn-danger btn-xs"  @if ( ! Sentry::hasAccess('places.delete')) disabled @endif>Delete</a>
+					<a href="{{ URL::to("admin/places/{$place['id']}/edit") }}" class="btn btn-default" @if ( ! Sentinel::hasAccess('places.edit')) disabled @endif>Edit</a>
+					<a href="{{ URL::to("admin/places/{$place['id']}/delete") }}" class="btn btn-danger btn-xs"  @if ( ! Sentinel::hasAccess('places.delete')) disabled @endif>Delete</a>
 				</td>
 			</tr>
 		@endforeach

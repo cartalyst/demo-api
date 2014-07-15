@@ -10,7 +10,7 @@ class CheckinTransformer extends TransformerAbstract {
 	 *
 	 * @var array
 	 */
-	protected $availableEmbeds = [
+	protected $availableIncludes = [
 		'place',
 		'user',
 	];
@@ -33,7 +33,7 @@ class CheckinTransformer extends TransformerAbstract {
 	 *
 	 * @return League\Fractal\Resource\Item
 	 */
-	public function embedPlace(Checkin $checkin)
+	public function includePlace(Checkin $checkin)
 	{
 		$place = $checkin->place;
 
@@ -45,7 +45,7 @@ class CheckinTransformer extends TransformerAbstract {
 	 *
 	 * @return League\Fractal\Resource\Item
 	 */
-	public function embedUser(Checkin $checkin)
+	public function includeUser(Checkin $checkin)
 	{
 		$user = $checkin->user;
 

@@ -1,6 +1,6 @@
 <?php
 
-use Cartalyst\Sentry\Groups\EloquentGroup;
+use Cartalyst\Sentinel\Groups\EloquentGroup;
 
 class Group extends EloquentGroup {
 

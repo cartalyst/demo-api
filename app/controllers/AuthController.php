@@ -1,6 +1,6 @@
 <?php
 
-use Cartalyst\Sentry\Checkpoints\ThrottlingException;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 
 class AuthController extends BaseController {
 
@@ -27,7 +27,7 @@ class AuthController extends BaseController {
 
 		try
 		{
-			$user = Sentry::authenticate(Input::get());
+			$user = Sentinel::authenticate(Input::get());
 		}
 		catch (ThrottlingException $e)
 		{
@@ -49,7 +49,7 @@ class AuthController extends BaseController {
 
 	public function logout()
 	{
-		Sentry::logout();
+		Sentinel::logout();
 
 		return Redirect::route('login')
 			->withSuccess('You have successfully logged out.');

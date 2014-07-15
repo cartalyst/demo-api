@@ -10,7 +10,7 @@ class UserTableSeeder extends Seeder {
 	public function run()
 	{
 		$admin = Group::whereSlug('admin')->first();
-		$user = Sentry::registerAndActivate([
+		$user = Sentinel::registerAndActivate([
 			'email'      => 'admin@example.com',
 			'password'   => 'password',
 			'first_name' => 'Dan',
@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder {
 		$user->groups()->attach($admin);
 
 		$privileged = Group::whereSlug('privileged')->first();
-		$user = Sentry::registerAndActivate([
+		$user = Sentinel::registerAndActivate([
 			'email'      => 'privileged@example.com',
 			'password'   => 'password',
 			'first_name' => 'Ben',
@@ -33,7 +33,7 @@ class UserTableSeeder extends Seeder {
 
 		for ($i = 0; $i < 10; $i++)
 		{
-			$user = Sentry::registerAndActivate([
+			$user = Sentinel::registerAndActivate([
 				'email' => $faker->email,
 				'password' => 'password',
 				'first_name' => $faker->firstName,

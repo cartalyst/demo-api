@@ -6,7 +6,7 @@
 	<h1>Edit Place {{{ $place['name'] }}}</h1>
 </div>
 
-@if ( ! Sentry::hasAccess('places.delete'))
+@if ( ! Sentinel::hasAccess('places.delete'))
 	<div class="alert alert-warning">
 		You don't have permission to delete places. Don't believe me? Bypass the button and go straight to <a href="{{ URL::to("admin/places/{$place['id']}/delete") }}">{{ URL::to("admin/places/{$place['id']}/delete") }}</a>
 	</div>
@@ -33,9 +33,9 @@
 	</div>
 	<div class="form-group {{ $errors->first('address', 'has-error') }}">
 		<div class="col-sm-10 col-sm-push-2">
-			{{ Form::submit('Save', ['class' => 'btn btn-primary btn-lg', ( ! Sentry::hasAccess('places.update') ? 'disabled' : '')]) }}
-			{{ Form::reset('Reset', ['class' => 'btn btn-default', ( ! Sentry::hasAccess('places.update') ? 'disabled' : '')]) }}
-			<a href="{{ URL::to("admin/places/{$place['id']}/delete") }}" class="btn btn-danger" @if ( ! Sentry::hasAccess('places.delete')) disabled @endif>Delete</a>
+			{{ Form::submit('Save', ['class' => 'btn btn-primary btn-lg', ( ! Sentinel::hasAccess('places.update') ? 'disabled' : '')]) }}
+			{{ Form::reset('Reset', ['class' => 'btn btn-default', ( ! Sentinel::hasAccess('places.update') ? 'disabled' : '')]) }}
+			<a href="{{ URL::to("admin/places/{$place['id']}/delete") }}" class="btn btn-danger" @if ( ! Sentinel::hasAccess('places.delete')) disabled @endif>Delete</a>
 		</div>
 	</div>
 {{ Form::close () }}

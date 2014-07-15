@@ -51,7 +51,7 @@ class BaseController extends Controller {
 
 	protected function checkAccess($permission)
 	{
-		return (Sentry::check() && Sentry::hasAccess($permission));
+		return (Sentinel::check() && Sentinel::hasAccess($permission));
 	}
 
 	/**

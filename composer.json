@@ -11,9 +11,9 @@
 	],
 	"require": {
 		"laravel/framework": "4.2.*",
-		"cartalyst/sentry": "dev-develop",
+		"cartalyst/sentinel": "dev-master",
 		"cartalyst/api": "2.0.*",
-		"league/fractal": "dev-master"
+		"league/fractal": "~0.9"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "1.3.*"

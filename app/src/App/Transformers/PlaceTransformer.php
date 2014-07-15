@@ -5,7 +5,7 @@ use Place;
 
 class PlaceTransformer extends TransformerAbstract {
 
-	protected $availableEmbeds = [
+	protected $availableIncludes = [
 		'checkins',
 	];
 
@@ -25,7 +25,7 @@ class PlaceTransformer extends TransformerAbstract {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function embedCheckins(Place $place)
+	public function includeCheckins(Place $place)
 	{
 		$checkins = $place->checkins;
 
