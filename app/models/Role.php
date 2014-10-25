@@ -1,8 +1,8 @@
 <?php
 
-use Cartalyst\Sentinel\Groups\EloquentGroup;
+use Cartalyst\Sentinel\Roles\EloquentRole;
 
-class Group extends EloquentGroup {
+class Role extends EloquentRole {
 
     public function getIdAttribute($id)
     {

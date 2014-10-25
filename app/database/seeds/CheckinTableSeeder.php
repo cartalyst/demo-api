@@ -11,7 +11,7 @@ class CheckinTableSeeder extends Seeder {
 	{
 		$faker = Faker\Factory::create();
 
-		$users = User::with('groups')->whereHas('groups', function($query)
+		$users = User::with('roles')->whereHas('roles', function($query)
 		{
 			$query->whereSlug('standard');
 		})->get();

@@ -10,7 +10,7 @@
  * bundled with this package in the license.txt file.
  *
  * @package    Sentinel
- * @version    1.0.0
+ * @version    1.0.7
  * @author     Cartalyst LLC
  * @license    Cartalyst PSL
  * @copyright  (c) 2011-2014, Cartalyst LLC
@@ -58,16 +58,61 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Groups
+	| Roles
 	|--------------------------------------------------------------------------
 	|
-	| Please provide the group model used in Sentinel.
+	| Please provide the role model used in Sentinel.
 	|
 	*/
 
-	'groups' => [
+	'roles' => [
 
-		'model' => 'Group',
+		'model' => 'Role',
+
+	],
+
+	/*
+	|--------------------------------------------------------------------------
+	| Permissions
+	|--------------------------------------------------------------------------
+	|
+	| Here you may specify the permissions class. Sentinel ships with two
+	| permission types.
+	|
+	| 'Cartalyst\Sentinel\Permissions\StrictPermissions'
+	| 'Cartalyst\Sentinel\Permissions\StandardPermissions'
+	|
+	| "StandardPermissions" will assign a higher priority to the user
+	| permissions over role permissions, once a user is allowed or denied
+	| a specific permission, it will be used regardless of the
+	| permissions set on the role.
+	|
+	| "StrictPermissions" will deny any permission as soon as it finds it
+	| rejected on either the user or any of the assigned roles.
+	|
+	*/
+
+	'permissions' => [
+
+		'class' => 'Cartalyst\Sentinel\Permissions\StandardPermissions',
+
+	],
+
+	/*
+	|--------------------------------------------------------------------------
+	| Persistences
+	|--------------------------------------------------------------------------
+	|
+	| Here you may specify the persistences model used and weather to use the
+	| single persistence mode.
+	|
+	*/
+
+	'persistences' => [
+
+		'model' => 'Cartalyst\Sentinel\Persistences\EloquentPersistence',
+
+		'single' => false,
 
 	],
 
@@ -79,15 +124,17 @@ return [
 	| When logging in, checking for existing sessions and failed logins occur,
 	| you may configure an indefinite number of "checkpoints". These are
 	| classes which may respond to each event and handle accordingly.
-	| We ship with two, an activation checkpoint and a throttling
+	| We ship with two, a throttling checkpoint and an activation
 	| checkpoint. Feel free to add, remove or re-order
 	| these.
 	|
 	*/
 
 	'checkpoints' => [
-		'activation',
+
 		'throttle',
+		'activation',
+
 	],
 
 	/*
@@ -97,7 +144,8 @@ return [
 	|
 	| Here you may specify the activations model used and the time (in seconds)
 	| which activation codes expire. By default, activation codes expire after
-	| three days.
+	| three days. The lottery is used for garbage collection, expired
+	| codes will be cleared automatically based on the provided odds.
 	|
 	*/
 
@@ -106,6 +154,8 @@ return [
 		'model' => 'Cartalyst\Sentinel\Activations\EloquentActivation',
 
 		'expires' => 259200,
+
+		'lottery' => [2, 100],
 
 	],
 
@@ -116,7 +166,8 @@ return [
 	|
 	| Here you may specify the reminders model used and the time (in seconds)
 	| which reminder codes expire. By default, reminder codes expire
-	| after four hours.
+	| after four hours. The lottery is used for garbage collection, expired
+	| codes will be cleared automatically based on the provided odds.
 	|
 	*/
 
@@ -125,6 +176,8 @@ return [
 		'model' => 'Cartalyst\Sentinel\Reminders\EloquentReminder',
 
 		'expires' => 14400,
+
+		'lottery' => [2, 100],
 
 	],
 

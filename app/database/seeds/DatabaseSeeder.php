@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		$tables = [
-			'activations', 'groups', 'groups_users', 'reminders', 'throttle', 'users',
+			'activations', 'roles', 'role_users', 'reminders', 'throttle', 'users',
 			'places',
 			'checkins',
 		];
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder {
 			DB::table($table)->truncate();
 		}
 
-		$this->call('GroupTableSeeder');
+		$this->call('RoleTableSeeder');
 		$this->call('UserTableSeeder');
 		$this->call('PlaceTableSeeder');
 		$this->call('CheckinTableSeeder');

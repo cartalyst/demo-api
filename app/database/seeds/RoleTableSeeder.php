@@ -1,6 +1,6 @@
 <?php
 
-class GroupTableSeeder extends Seeder {
+class RoleTableSeeder extends Seeder {
 
     /**
      * Run the database seeds.
@@ -9,7 +9,7 @@ class GroupTableSeeder extends Seeder {
      */
     public function run()
     {
-        Group::create([
+        Role::create([
             'slug' => 'admin',
             'name' => 'Admin',
             'permissions' => [
@@ -18,7 +18,7 @@ class GroupTableSeeder extends Seeder {
             ],
         ]);
 
-        Group::create([
+        Role::create([
             'slug' => 'privileged',
             'name' => 'Privileged',
             'permissions' => [
@@ -28,7 +28,7 @@ class GroupTableSeeder extends Seeder {
             ],
         ]);
 
-        Group::create([
+        Role::create([
             'slug' => 'standard',
             'name' => 'Standard',
             'permissions' => [

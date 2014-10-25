@@ -9,25 +9,25 @@ class UserTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		$admin = Group::whereSlug('admin')->first();
+		$admin = Role::whereSlug('admin')->first();
 		$user = Sentinel::registerAndActivate([
 			'email'      => 'admin@example.com',
 			'password'   => 'password',
 			'first_name' => 'Dan',
 			'last_name'  => 'Syme',
 		]);
-		$user->groups()->attach($admin);
+		$user->roles()->attach($admin);
 
-		$privileged = Group::whereSlug('privileged')->first();
+		$privileged = Role::whereSlug('privileged')->first();
 		$user = Sentinel::registerAndActivate([
 			'email'      => 'privileged@example.com',
 			'password'   => 'password',
 			'first_name' => 'Ben',
 			'last_name'  => 'Corlett',
 		]);
-		$user->groups()->attach($privileged);
+		$user->roles()->attach($privileged);
 
-		$standard = Group::whereSlug('standard')->first();
+		$standard = Role::whereSlug('standard')->first();
 
 		$faker = Faker\Factory::create();
 
@@ -39,7 +39,7 @@ class UserTableSeeder extends Seeder {
 				'first_name' => $faker->firstName,
 				'last_name' => $faker->lastName,
 			]);
-			$user->groups()->attach($standard);
+			$user->roles()->attach($standard);
 		}
 	}
 

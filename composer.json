@@ -11,7 +11,7 @@
 	],
 	"require": {
 		"laravel/framework": "4.2.*",
-		"cartalyst/sentinel": "dev-master",
+		"cartalyst/sentinel": "1.0.*",
 		"cartalyst/api": "2.0.*",
 		"league/fractal": "~0.9"
 	},
